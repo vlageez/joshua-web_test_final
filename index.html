@@ -18,30 +18,29 @@
 
 <body>
 
-    <audio id="audio1">
-    <source id="audioSource" src="assets/Illegals%20In%20My%20Yard.mp3" type="audio/mpeg">
-    </audio>
-    
-    <button id="switchBtn" onclick="playAudio()">Play/Switch Sound</button>
+    <audio id="audio1"></audio>
+
+    <button id="switchBtn" onclick="playAudio()">▶ Play / Switch Sound</button>
     
     <script>
         const track1 = "assets/Illegals%20In%20My%20Yard.mp3";
         const track2 = "assets/Fake%20Love.mp3";
     
         const player = document.getElementById("audio1");
-        const source = document.getElementById("audioSource");
         const button = document.getElementById("switchBtn");
     
+        let currentTrack = track1;
+    
         function playAudio() {
-            if (source.getAttribute("src") === track1) {
-                source.setAttribute("src", track2);
-                button.innerText = "Switch to Illegals In My Yard";
+            if (currentTrack === track1) {
+                currentTrack = track2;
+                button.innerText = "▶ Switch to Illegals In My Yard";
             } else {
-                source.setAttribute("src", track1);
-                button.innerText = "Switch to Fake Love - 24GH";
+                currentTrack = track1;
+                button.innerText = "▶ Switch to Fake Love - 24GH";
             }
-            player.load();
-            player.play().catch(err => console.error("Playback error:", err));
+            player.src = currentTrack;
+            player.play();
         }
     </script>
 
