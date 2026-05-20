@@ -17,9 +17,36 @@
 </head>
 
 <body>
-    <audio id="background-audio" autoplay loop>
-        <source src="assets/Illegals In My Yard.mp3" type="audio/mpeg">
+
+    <audio id="audio1" autoplay loop>
+        <source id = "audioSource" src="assets/Illegals In My Yard.mp3" type="audio/mpeg">
     </audio>
+    
+    <button id= "switchBtn" onclick="playAudio()"> Switch Sound</button>
+    <script>
+        //audio file paths
+        const track1 = "assets/Illegals In My Yard.mp3"
+        const track2 = "assets/Fake Love.mp3"
+        //elements
+        const player = document.getElementById("audio1");
+        const source = document.getElementById("audioSource");
+        const button = document.getElementById("switchBtn")
+
+        function playAudio(){
+            if (source.src.includes(track1)) {
+                source.src=track2;
+                button.innerText = "Switch to Fake Love -24GH";
+            
+            }
+            else{
+                source.src=track1;
+                button.innerText = "Switch to Illegals In My Yard";
+            }
+            player.load();
+            player.play();\
+        }
+    </script>
+
 
     <div id="loading">
         <div id="spinner"></div>
@@ -57,9 +84,7 @@
         <div onclick="closeprojects()"><i class="fas fa-angle-right"></i></div>
         <h1>Projects</h1>
         <section>
-            <audio id="background-audio" autoplay loop> <source src="assets/Fake Love.mp3" type="audio/mpeg">
-            </audio>
-            <h2>Work is my Archnemesis!</h2>
+                        <h2>Work is my Archnemesis!</h2>
             <p>
                 Here are some of the things I've done to make others work.
             </p>
