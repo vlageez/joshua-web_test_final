@@ -55,14 +55,12 @@ function closecontact(){
     },800);
 }
 setTimeout(function(){
-    $("#loading").addClass("animated fadeOut");
+    
     setTimeout(function(){
-      $("#loading").removeClass("animated fadeOut");
-      $("#loading").css("display","none");
-      $("#box").css("display","none");
-      $("#projects").removeClass("animated fadeIn");
-      $("#about").removeClass("animated fadeIn");
-      $("#contact").removeClass("animated fadeIn");
-      $("#work").removeClass("animated fadeIn");
+        $("#box").css("display","none");
+        $("#projects").removeClass("animated fadeIn");
+        $("#about").removeClass("animated fadeIn");
+        $("#contact").removeClass("animated fadeIn");
+        $("#work").removeClass("animated fadeIn");
     },1000);
 },1500);
