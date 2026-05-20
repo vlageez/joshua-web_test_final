@@ -42,7 +42,7 @@
                 button.innerText = "Switch to Fake Love - 24GH";
             }
             player.load();
-            player.play();
+            player.play().catch(err => console.error("Playback failed:", err));
         }
     </script>
 
