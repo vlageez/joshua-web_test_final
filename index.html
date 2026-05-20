@@ -18,22 +18,21 @@
 
 <body>
 
-    <audio id="audio1" autoplay muted>
-        <source id = "audioSource" src="assets/Illegals In My Yard.mp3" type="audio/mpeg">
+    <audio id="audio1" muted>
+    <source id="audioSource" src="assets/Illegals In My Yard.mp3" type="audio/mpeg">
     </audio>
     
-    <button id= "switchBtn" onclick="playAudio()"> Switch Sound</button>
+    <button id="switchBtn" onclick="playAudio()">Switch Sound</button>
+    
     <script>
-        //audio file paths
-        const track1 = "assets/Illegals In My Yard.mp3"
-        const track2 = "assets/Fake Love.mp3"
-        //elements
+        const track1 = "assets/Illegals In My Yard.mp3";
+        const track2 = "assets/Fake Love.mp3";
+    
         const player = document.getElementById("audio1");
         const source = document.getElementById("audioSource");
         const button = document.getElementById("switchBtn");
-
-        function playAudio(){
-            // Use getAttribute to get the raw src value, not the resolved absolute URL
+    
+        function playAudio() {
             if (source.getAttribute("src") === track1) {
                 source.setAttribute("src", track2);
                 button.innerText = "Switch to Illegals In My Yard";
@@ -42,7 +41,7 @@
                 button.innerText = "Switch to Fake Love - 24GH";
             }
             player.load();
-            player.play().catch(err => console.error("Playback failed:", err));
+            player.play().catch(err => console.error("Playback error:", err));
         }
     </script>
 
