@@ -19,8 +19,8 @@
 <body>
 
     <audio id="audio1"></audio>
-
     <button id="switchBtn" onclick="playAudio()">▶ Play / Switch Sound</button>
+    <p id="status" style="color:red; font-size:14px;">Status: waiting</p>
     
     <script>
         const track1 = "assets/Illegals%20In%20My%20Yard.mp3";
@@ -28,18 +28,34 @@
     
         const player = document.getElementById("audio1");
         const button = document.getElementById("switchBtn");
+        const status = document.getElementById("status");
     
         let currentTrack = track1;
+        let isPlaying = false;
+    
+        player.addEventListener("playing", () => status.innerText = "Status: ▶ playing " + currentTrack);
+        player.addEventListener("error", () => status.innerText = "Status: ❌ ERROR - file not found or wrong path");
+        player.addEventListener("stalled", () => status.innerText = "Status: ⚠️ stalled - file may not exist");
     
         function playAudio() {
-            if (currentTrack === track1) {
-                currentTrack = track2;
-                button.innerText = "▶ Switch to Illegals In My Yard";
+            if (isPlaying) {
+                // switch track
+                if (currentTrack === track1) {
+                    currentTrack = track2;
+                    button.innerText = "▶ Switch to Illegals In My Yard";
+                } else {
+                    currentTrack = track1;
+                    button.innerText = "▶ Switch to Fake Love - 24GH";
+                }
+                player.src = currentTrack;
             } else {
-                currentTrack = track1;
-                button.innerText = "▶ Switch to Fake Love - 24GH";
+                // first tap — just play
+                player.src = currentTrack;
+                isPlaying = true;
+                button.innerText = "▶ Switch Track";
             }
-            player.src = currentTrack;
+    
+            status.innerText = "Status: loading " + currentTrack;
             player.play();
         }
     </script>
