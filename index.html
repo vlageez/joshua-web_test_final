@@ -19,8 +19,24 @@
 <body>
 
     <audio id="audio1"></audio>
-    <button id="switchBtn" onclick="playAudio()">▶ Play / Switch Sound</button>
-    <p id="status" style="color:red; font-size:14px;">Status: waiting</p>
+    <button id="switchBtn" style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        padding: 10px 16px;
+        cursor: pointer;
+    ">▶ Play / Switch Sound</button>
+    <p id="status" style="
+        position: fixed;
+        bottom: 60px;
+        right: 20px;
+        z-index: 9999;
+        color: red;
+        background: white;
+        padding: 4px 8px;
+        font-size: 13px;
+    ">Status: waiting</p>
     
     <script>
         const track1 = "assets/Illegals%20In%20My%20Yard.mp3";
