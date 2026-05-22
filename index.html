@@ -17,65 +17,17 @@
 </head>
 
 <body>
-    <button onclick="alert('JS works')">Test JS</button>
-    <audio id="audio1"></audio>
-
-    <button id="switchBtn" style="
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 9999;
-        padding: 10px 16px;
-        cursor: pointer;
-    ">▶ Play / Switch Sound</button>
-    <p id="status" style="
-        position: fixed;
-        bottom: 60px;
-        right: 20px;
-        z-index: 9999;
-        color: red;
-        background: white;
-        padding: 4px 8px;
-        font-size: 13px;
-    ">Status: waiting</p>
     
-    <script>
-        const track1 = "assets/Illegals%20In%20My%20Yard.mp3";
-        const track2 = "assets/Fake%20Love.mp3";
+    <audio autoplay loop>
+        <source src="assets/Illegals%20In%20My%20Yard.mp3" type="audio/mpeg">
+    </audio>
     
-        const player = document.getElementById("audio1");
-        const button = document.getElementById("switchBtn");
-        const status = document.getElementById("status");
+    <audio autoplay loop>
+        <source src="assets/Fake%20Love.mp3" type="audio/mpeg">
+    </audio>
     
-        let currentTrack = track1;
-        let isPlaying = false;
     
-        player.addEventListener("playing", () => status.innerText = "Status: ▶ playing " + currentTrack);
-        player.addEventListener("error", () => status.innerText = "Status: ❌ ERROR - file not found or wrong path");
-        player.addEventListener("stalled", () => status.innerText = "Status: ⚠️ stalled - file may not exist");
     
-        function playAudio() {
-            if (isPlaying) {
-                // switch track
-                if (currentTrack === track1) {
-                    currentTrack = track2;
-                    button.innerText = "▶ Switch to Illegals In My Yard";
-                } else {
-                    currentTrack = track1;
-                    button.innerText = "▶ Switch to Fake Love - 24GH";
-                }
-                player.src = currentTrack;
-            } else {
-                // first tap — just play
-                player.src = currentTrack;
-                isPlaying = true;
-                button.innerText = "▶ Switch Track";
-            }
-    
-            status.innerText = "Status: loading " + currentTrack;
-            player.play();
-        }
-    </script>
 
 
     
