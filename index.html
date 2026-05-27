@@ -14,6 +14,51 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
+
+    
+    <style>
+    #about_container,
+    #work_container,
+    #contact_container,
+    #projects_container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    #about_container::before,
+    #work_container::before,
+    #contact_container::before,
+    #projects_container::before {
+        content: "";
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.15;
+        z-index: 0;
+    }
+
+    #about_container::before {
+        background-image: url('./assets/about-bg.jpg');
+    }
+    #work_container::before {
+        background-image: url('./assets/work-bg.jpg');
+    }
+    #contact_container::before {
+        background-image: url('./assets/contact-bg.jpg');
+    }
+    #projects_container::before {
+        background-image: url('./assets/projects-bg.jpg');
+    }
+
+    #about_container > *,
+    #work_container > *,
+    #contact_container > *,
+    #projects_container > * {
+        position: relative;
+        z-index: 1;
+    }
+</style>
 </head>
 
 <body>
