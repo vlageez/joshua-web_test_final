@@ -155,7 +155,7 @@ body {
     border-radius:100px 100px 0px 0px;
 }
 #projects:hover {
-    background: linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("assets/cotton1.png") center center;;
+    background: linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("assets/cotton1.png") center center;
     cursor:pointer;
 }
 #about:hover {
