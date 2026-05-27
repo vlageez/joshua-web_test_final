@@ -88,7 +88,7 @@ body {
     height: 10vw;
     text-align: center;
     font-size: 25px;
-    background: transparent;
+    background: linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("assets/cotton1.png") center center;
     color: #fff;
     position: fixed;
     top: 0;
